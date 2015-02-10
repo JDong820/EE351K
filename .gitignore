@@ -1,0 +1,6 @@
+*.aux
+*.log
+*.sw*
+*.eps
+*.beam
+*.pdf
