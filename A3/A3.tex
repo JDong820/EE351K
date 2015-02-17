@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{centernot}
+\usepackage{graphicx}
+\begin{document}
+\title{\vspace{-60px}M351K\: Homework 3}
+\author{Joshua Dong}
+\date{\today}
+\maketitle
+
+\section*{1: Conditional Probability}
+Let $P(W)$ be the probability that a white ball is selected and
+$P(B_1)$ the probability that the first box is chosen by the coin.
+\\$P(B_1 \;|\; W) = \frac{P(B_1)P(W | B_1)}{P(W)}$.
+\\$\displaystyle
+\frac{P(B_1)P(W | B_1)}{P(W)} =
+\frac{(\frac{3}{4})(\frac{7}{13+7})}
+     {(\frac{3}{4})(\frac{7}{13+7}) + (\frac{1}{4})(\frac{8}{2+8})} =
+\frac{1}{1 + (\frac{8}{40})(\frac{80}{21})} = 
+\frac{1}{1 + \frac{16}{21}} =
+\frac{21}{37}$.
+
+
+\section*{2: PMF}
+$\displaystyle\sum_{-\infty}^{\infty} p_X(x) = 1$.
+\\$\displaystyle\sum_{-\infty}^{\infty} p_X(x) =
+\displaystyle\sum_{-\infty}^{1} p_X(x)
++ p_X(0)
++ \displaystyle\sum_{1}^{\infty} p_X(x)
+\\= p_X(0) + 2\displaystyle\sum_{x=1}^{\infty} 0.4(1-q)q^{x-1}
+\\= b + 0.8(1-q)\displaystyle\sum_{x=1}^{\infty} q^{x-1}
+\\= b + 0.8(1-q)(\displaystyle\sum_{x=1}^{\infty} q^{x} + 1)
+\textstyle
+\\= b + 0.8(1-q)(\frac{p}{1-p} + 1)
+\\= b + (\frac{4}{5})(\frac{3}{4})(\frac{4}{3}).
+\\1 - (\frac{4}{5}) = b.
+\\b = \frac{1}{5}$.
+\newpage
+
+
+\section*{3: Coins}
+\subsection*{a)}
+The sample space is 
+$\{(x_1, x_2, ..., x_{150}) \in \{H, T\}^{150} \;|\;
+    x_n \in \{H, T\}\}$.
+
+\subsection*{b)}
+Let $h$ be the number of heads.
+Then $h \sim \mathcal{B}(150, 0.75)$.
+
+
+\section*{4: Infinite sums}
+Let $d$ be the number of games played. Then $d \sim \mathcal{NB}(1, 0.4)$.
+\\The probability that Alice wins the game is
+\\$0.2 + 0.2(0.4)^1 + 0.2(0.4)^2 + ...
+= 0.2 + 0.2\left(\displaystyle\sum_{n=1}^\infty 0.4^n\right)
+\textstyle
+= 0.2 + 0.2(\frac{0.4}{1-0.4})
+= \frac{1}{3}$.
+\\The probability that Bob wins is the probability that Alice
+loses:
+$1 - \frac{1}{3} = \frac{2}{3}$.
+
+\section*{5: Negative binomial}
+$X \sim \mathcal{NB}(n, p)$, where $X$ is the random variable given.
+
+\section*{6: Uniform distribution}
+I am quite convinced that Y, Z, and R are discrete random variables.
+
+\subsection*{a)}
+$p_Y(x) = 
+\begin{cases}
+    \frac{3}{8} & \text{if }x = 0 \\
+    \frac{1}{16} & \text{if }1 \leq x \leq 10, x \in \mathbb{Z} \\
+    0 & \text{if }x < 0 \text{ or }10 < x
+\end{cases}
+$
+
+\subsection*{b)}
+$p_Z(x) =
+\begin{cases}
+    \frac{5}{8} & \text{if }x = 1 \\
+    \frac{1}{16} & \text{if }-5 \leq x \leq 0, x \in \mathbb{Z} \\
+    0 & \text{if }x < -5 \text{ or }1 < x
+\end{cases}
+$
+
+\subsection*{c)}
+$p_R(x) =
+\begin{cases}
+    \frac{1}{8} & \text{if }1 \leq x \leq 5, x \in \mathbb{Z} \\
+    \frac{1}{16} & \text{if }x = 0 \text{ or }
+        5 < x \leq 10, x \in \mathbb{Z} \\
+    0 & \text{if }x < 0 \text{ or }10 < x
+\end{cases}
+$
+
+\end{document}
