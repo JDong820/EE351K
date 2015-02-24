@@ -44,6 +44,7 @@ $\frac{0.9}{0.9 + 0.02} \approx 0.9783$.
 Let A be the event that a randomly chosen child among two is a boy.
 \\Let B be the event that a given sibling is a boy.
 \\We want to find $P(B|A)$.
+\\We use total probability theorem on A.
 \\$P(A)
 = P(\text{boy and not boy})
   P(A|\text{boy and not boy})
@@ -55,18 +56,11 @@ Let A be the event that a randomly chosen child among two is a boy.
         + \frac{1}{3} \cdot 1
         + 0
 = \frac{1}{2}$.
-\\$P(B) \approx \frac{1}{2}$.
-\\$P(A|B) = 
-  P(\text{boy and not boy}|B)
-  P(A|\text{boy and not boy})
-+ P(\text{two boys}|B)
-  P(A|\text{two boys})
-\\\approx \frac{1}{2} \cdot \frac{1}{2}
-        + \frac{1}{2} \cdot 1
-= \frac{3}{4}$.
-\\Then $P(B|A)
-= \frac{P(A)P(A|B)}{P(B)}
-\approx \displaystyle\frac{\frac{1}{2} \cdot \frac{3}{4}}{\frac{1}{2}}
-= \frac{3}{4}$.
+\\Then we use this to find $P(B|A)
+\\= P(\text{boy and not boy})P(B|A, \text{boy and not boy}).
+  + P(\text{two boys})P(B|A, \text{two boys})
+\\= \frac{2}{3} \cdot \frac{1}{2}
+  + \frac{1}{3} \cdot 1
+\\= \frac{2}{3}$.
 
 \end{document}
