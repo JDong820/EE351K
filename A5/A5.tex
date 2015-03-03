@@ -1,0 +1,131 @@
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{centernot}
+\usepackage{graphicx}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+
+\begin{document}
+\title{\vspace{-60px}M351K\: Homework 5}
+\author{Joshua Dong}
+\date{\today}
+\maketitle
+
+\section*{1: pdf}
+$\int_{-\infty}^{\infty}h(x)dx
+\\= \int_{-\infty}^{\infty}(\alpha f(x) + (1 - \alpha) g(x))dx
+\\= \alpha\int_{-\infty}^{\infty}f(x)dx
++ (1 - \alpha)\int_{-\infty}^{\infty} g(x)dx
+\\= \alpha + (1 - \alpha)
+\\= 1
+$.
+\\$\alpha, (1 - \alpha), f(x), g(x) \ge 0 \;\; \forall x \in \mathbb{R}$.
+\\Then $\alpha f(x) + (1 - \alpha)g(x) \ge 0 \;\; \forall x \in \mathbb{R}$.
+\\Then $h(x) \ge 0 \;\; \forall x \in \mathbb{R}$.
+\\Then $h(x)$ is a valid probability density function.
+
+\section*{2: C}
+\subsection*{a)}
+$1 = \int_{-\infty}^{\infty}f(x)dx = \int_{-\infty}^{\infty}Ce^{-\alpha x}dx$.
+\\Then knowing properties of exponential distributions, we conclude that
+$C = \alpha$ is the only possibility.
+\subsection*{b) plot}
+Knowing properties of exponential distributions, we recall
+\\$
+F(x) = 
+\begin{cases}
+    1 - e^{-\alpha x} & \text{if }x \ge 0 \\
+    0 & \text{if } x < 0
+\end{cases}
+$.
+\subsection*{c)}
+$y = F_Y(y) = g(F_Z(z)) = g(1 - e^{-z})$.
+\\Then $g(y) =
+\begin{cases}
+    -\ln{(1-y)} & \text{if } y \in [0, 1] \\
+    0 & \text{if } x < 0\\
+    \infty & \text{if } x > 1
+\end{cases}
+$.
+
+\newpage
+\section*{3: pdf}
+\subsection*{a)}
+$F(0) = 0$.
+\subsection*{b)}
+$F(1)
+= \int_0^1{(\frac{3}{2}y - \frac{3}{4}y^2)dx}
+= (\frac{3}{4}y^2 - \frac{3}{12}y^3) \Big|_0^1
+= \frac{9}{12} - \frac{3}{12}
+= \frac{1}{2}$.
+\subsection*{c)}
+$F(2) = 1$.
+\subsection*{d)}
+$F(4) = 1$.
+\subsection*{maximization}
+To find $\argmax{F(a+0.2) - F(a)}$, we can use derivatives.
+\\$f(a+0.2) - f(a)
+\\= (\frac{3}{2}(a + \frac{1}{5}) - \frac{3}{4}(a + \frac{1}{5})^2)
+- (\frac{3}{2}a - \frac{3}{4}a^2)
+\\= \frac{3}{2}a + \frac{3}{10}
+- \frac{3}{4}a^2 - \frac{6}{20}a - \frac{1}{25}
+- \frac{3}{2}a + \frac{3}{4}a^2
+\\= \frac{3}{10} - \frac{6}{20}a
+\\= \frac{3}{10}(1 - a)$.
+\\Convinently, $1 \in [0, 2]$.
+\\Since the pdf is non-negative and there is only one critical point,
+we know that $\argmax{F(a+0.2) - F(a)} = 1$
+\newpage
+
+\section*{4: integration}
+\subsection*{integration}
+$\displaystyle
+1 = \int_1^\infty{\int_1^\infty{ce^{-2(x+y)}dxdy}}
+\\= c\int_1^\infty{\int_1^\infty{e^{-2x}e^{-2y}dxdy}}
+\\= c\int_1^\infty{e^{-2y}dy(-\frac{1}{2}e^{-2x} \Big|_1^\infty)}
+\\= c(0 - (-\frac{1}{2}e^{-2}))\int_1^\infty{e^{-2y}dy}
+\\= \frac{1}{2}ce^{-2}(-\frac{1}{2}e^{-2x} \Big|_1^\infty)
+\\= \frac{1}{4}ce^{-4}$.
+\\Then $c = 4e^4$.
+\subsection*{more integration}
+$f_X(x) = \int_1^\infty{f_{XY}(x, y)dy}
+\\= \int_1^\infty{ce^{-2x}e^{-2y}dy}
+\\= ce^{-2x}(-\frac{1}{2}e^{-2y} \Big|_1^\infty)
+\\= 2e^{2}e^{-2x}$.
+\\By a symmetry argument, we see that $f_Y(y) = 2e^{2}e^{-2y}$.
+\\We also notice that $f_{XY}(x, y) = f_Y(y)f_X(x)$.
+\\Thus $X$ and $Y$ are independent random variables.
+
+\section*{5: integration}
+$\displaystyle
+F_X(x)
+\\= \int_{-\infty}^x{\frac{\frac{\alpha}{\pi}}{x^2 + \alpha^2}}
+\\= \frac{1}{\alpha\pi}\int_{-\infty}^x{\frac{1}{(\frac{x}{\alpha})^2 + 1}}
+\\= \frac{1}{\pi}(\tan^{-1}{(\frac{x}{\alpha})} \Big|_{-\infty}^x)
+\\= \frac{1}{\pi}\tan^{-1}{(\frac{x}{\alpha})} - (-\frac{1}{2})
+\\= \frac{1}{\pi}\tan^{-1}{(\frac{x}{\alpha})} + \frac{1}{2}$.
+
+\section*{6: integration}
+\subsection*{a) plot pdf}
+$1 = \int_{-\infty}^\infty{f(x)dx} = c\int_0^1{(x - x^3)dx}.
+\\= c(\frac{1}{2}x^2 - \frac{1}{4}x^4) \Big|_0^1
+\\= \frac{c}{4}$.
+\\Then $c = 4$.
+
+\subsection*{b) plot cdf}
+$\int_{-\infty}^x{f_X(x)dx} = 
+\begin{cases}
+    2x^2 - x^4 & \text{if } x \in [0, 1] \\
+    0 & \text{if } x < 0\\
+    1 & \text{if } x > 1
+\end{cases}
+$.
+
+\subsection*{c) pdf}
+$P(0 < X < 0.5) = F(0.5) - F(0) = F(0.5) = \frac{7}{16}.
+\\P(X = 1) = 0.
+\\P(0.25 < X < 0.5) = F(0.5) - F(0.25)
+= \frac{7}{16} - \frac{31}{256} = \frac{81}{256}
+$.
+
+\end{document}
